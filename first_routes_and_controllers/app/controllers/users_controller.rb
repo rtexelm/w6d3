@@ -33,12 +33,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    user = User.find(params[:id].permit)
-    if user.destroy #(params.require(:user).permit(:name, :email))
-      render json: user
-    else
-      render json: user.errors.full_messages, status: :unprocessable_entity
-    end
+    user = User.find(params[:id)
+    user.destroy #(params.require(:user).permit(:name, :email))
+    render json: user
   end
 
 end
